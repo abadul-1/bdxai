@@ -1,0 +1,68 @@
+name: build-bdxai
+
+on:
+  push:
+    branches: [ main ]
+    tags: [ 'v*' ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install tooling
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y dpkg-dev apt-utils gnupg
+
+      - name: Build .deb
+        run: bash build.sh
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: bdxai-deb
+          path: build/*.deb
+
+      - name: Build APT repository
+        run: |
+          mkdir -p repo/pool/main repo/dists/stable/main/binary-all
+          cp build/bdxai_1.0.0_all.deb repo/pool/main/
+          cd repo
+          dpkg-scanpackages --arch all pool/main /dev/null \
+            > dists/stable/main/binary-all/Packages
+          gzip -kf dists/stable/main/binary-all/Packages
+          cat > dists/stable/Release <<EOF
+          Origin: BDX
+          Label: BDX AI
+          Suite: stable
+          Codename: stable
+          Architectures: all
+          Components: main
+          Description: BDX AI APT repository
+          EOF
+          cd dists/stable
+          apt-ftparchive release . >> Release
+          cd ../..
+          gpg --batch --yes --pinentry-mode loopback \
+              --passphrase "${{ secrets.GPG_PASSPHRASE }}" \
+              --import <(echo "${{ secrets.GPG_PRIVATE_KEY }}") || true
+          gpg --batch --yes --pinentry-mode loopback \
+              --passphrase "${{ secrets.GPG_PASSPHRASE }}" \
+              -abs -o dists/stable/Release.gpg dists/stable/Release || true
+          gpg --batch --yes --pinentry-mode loopback \
+              --passphrase "${{ secrets.GPG_PASSPHRASE }}" \
+              --clearsign -o dists/stable/InRelease dists/stable/Release || true
+
+      - name: Publish APT repo to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./repo
+          publish_branch: gh-pages
+          keep_files: true
