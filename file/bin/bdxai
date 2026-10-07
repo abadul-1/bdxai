@@ -1,0 +1,74 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# BDX AI launcher
+
+BDXAI_DIR="/data/data/com.termux/files/usr/share/bdxai"
+BDXAI_PORT="${BDXAI_PORT:-8080}"
+export BDXAI_PORT
+
+# ---- Setup check ----
+if [ -z "$OPENROUTER_API_KEY" ]; then
+    cat <<'EOF'
+
+==========================================
+           BDX AI Setup
+==========================================
+
+Set your OpenRouter API key:
+
+  export OPENROUTER_API_KEY='YOUR_KEY'
+
+Then run:
+
+  bdxai
+
+Get a free key at: https://openrouter.ai/keys
+
+==========================================
+
+EOF
+    exit 1
+fi
+
+# ---- Check python ----
+if ! command -v python >/dev/null 2>&1; then
+    echo "[!] Python not found. Install it with: pkg install python"
+    exit 1
+fi
+
+# ---- Check port ----
+if command -v ss >/dev/null 2>&1; then
+    if ss -ltn 2>/dev/null | grep -q ":${BDXAI_PORT} "; then
+        echo "[!] Port ${BDXAI_PORT} is already in use."
+        echo "    Try: export BDXAI_PORT=8081 && bdxai"
+        exit 1
+    fi
+fi
+
+URL="http://127.0.0.1:${BDXAI_PORT}"
+
+echo ""
+echo "  ██████╗ ██████╗ ██╗  ██╗     █████╗ ██╗"
+echo "  ██╔══██╗██╔══██╗╚██╗██╔╝    ██╔══██╗██║"
+echo "  ██████╔╝██║  ██║ ╚███╔╝     ███████║██║"
+echo "  ██╔══██╗██║  ██║ ██╔██╗     ██╔══██║██║"
+echo "  ██████╔╝██████╔╝██╔╝ ██╗    ██║  ██║██║"
+echo "  ╚═════╝ ╚═════╝ ╚═╝  ╚═╝    ╚═╝  ╚═╝╚═╝"
+echo "        ETHICAL CYBERSECURITY AI"
+echo ""
+echo "  Local server : ${URL}"
+echo "  Model        : ${OPENROUTER_MODEL:-openrouter/free}"
+echo "  Press Ctrl+C to stop."
+echo ""
+
+# ---- Try to open browser (optional) ----
+(
+    sleep 2
+    if command -v termux-open-url >/dev/null 2>&1; then
+        termux-open-url "$URL" >/dev/null 2>&1 || true
+    elif command -v xdg-open >/dev/null 2>&1; then
+        xdg-open "$URL" >/dev/null 2>&1 || true
+    fi
+) &
+
+# ---- Run server ----
+exec python "$BDXAI_DIR/server.py"
