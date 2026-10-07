@@ -4,10 +4,10 @@ Architecture: all
 Maintainer: BDX
 Depends: python
 Filename: pool/main/bdxai_1.0.0_all.deb
-Size: 6230
-MD5sum: dbab81aae977e4a1082bf25c3e3b1a53
-SHA1: 0db24cd43eeae0958f38f7f443d6b61220e8a167
-SHA256: 59052ceba11fbce789af1a76254109328b74ea91a2842eb72287a34ab013228a
+Size: 7682
+MD5sum: 0d9bd13282899103717382adb1c34d2a
+SHA1: 1da589f1b1e4134c2be8200a5dc15f3b7501416d
+SHA256: 6ee5853c2fee31827333b0e69a641a14ead9cee1c69f54e4e2fe42e5493035b1
 Section: utils
 Priority: optional
 Homepage: https://github.com/bdx/bdxai
