@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="dark" />
+<title>BDX AI · Ethical Cybersecurity AI</title>
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="hdr">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">BDX</div>
+        <div class="titles">
+          <h1>BDX AI</h1>
+          <p class="sub">ETHICAL CYBERSECURITY AI</p>
+        </div>
+      </div>
+      <div class="status" title="Local server online">
+        <span class="dot"></span><span>ONLINE</span>
+      </div>
+    </header>
+
+    <main id="chat" class="chat" aria-live="polite">
+      <!-- welcome message injected by app.js -->
+    </main>
+
+    <form id="composer" class="composer" autocomplete="off">
+      <textarea id="input" rows="1" placeholder="Ask BDX AI…" aria-label="Message"></textarea>
+      <button id="send" type="submit" aria-label="Send">Send</button>
+      <button id="clear" type="button" class="ghost" aria-label="Clear chat">Clear</button>
+    </form>
+
+    <footer class="ftr">
+      <span>Local only · 127.0.0.1</span>
+      <span id="model" class="model"></span>
+    </footer>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>
