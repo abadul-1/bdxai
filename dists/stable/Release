@@ -5,20 +5,20 @@ Codename: stable
 Architectures: all
 Components: main
 Description: BDX AI APT repository
-Date: Wed, 07 Oct 2026 13:44:27 +0000
+Date: Wed, 07 Oct 2026 13:45:20 +0000
 MD5Sum:
- 7bcda548b469faaf4c32cfa6649d25e4              166 Release
- 0ac73bcef03bcd11becc823cf9e05c98              665 main/binary-all/Packages
- e2ec1429a86d0f13d6fcebad928d1910              484 main/binary-all/Packages.gz
+ be47022854b3d8d4f53bb4d381619a09              166 Release
+ 6eded5437511836e1df08f0febb62879              665 main/binary-all/Packages
+ 959f3fb48f11342dca01a44560139549              484 main/binary-all/Packages.gz
 SHA1:
- 2a26d57fda7ed30f2da30daa307b00b6dd91e76d              166 Release
- 9572f5b57284f0e158920ef104d00bf1bb9c279b              665 main/binary-all/Packages
- 6625ea59ef6ba20e8135aad23559932143fcb99d              484 main/binary-all/Packages.gz
+ 58b6bb9a26026cc5629bbe017d8f114f15d21b9b              166 Release
+ cc8fd1e3d777b0f868f5f25000361917e40d2b55              665 main/binary-all/Packages
+ a89088fdd9353814841d4643bed2b7ab629c3d40              484 main/binary-all/Packages.gz
 SHA256:
- 18121199956d5a86cef5e1778ee8951ed9e44f96256ef2641e976779945f8dfd              166 Release
- 3eca556eeee722728e8d48927e93693e242572291d29d4c0101827e40c99839f              665 main/binary-all/Packages
- c859ed6a748693b3168167521590d44093afccd6abba2d9999930301431371a5              484 main/binary-all/Packages.gz
+ 3f8e05d7242398c6375294676f6ed9c6aba45c5aaa4b6585992168b8f385b185              166 Release
+ f5988524acab187d3f69701c2a1a9190c722a77a454ebfa69cf65201b7384c1e              665 main/binary-all/Packages
+ 6378704e1966ea5714b0a592787647a98038d1617fa3626b2bfb486eedf8e594              484 main/binary-all/Packages.gz
 SHA512:
- 7974f890b65e9f60747daa57d6099c4949c7190910864a3ec2d57018d9a8f7cfbc3d751cd0468c69b93c27e30ad6de5d353408259fd7febd9762fe92f13ac96f              166 Release
- f6b652825de0ab578979ca27d4e08b1a62af3e594c62a9e89a6d86852ca6a221a264ed4a60168d23edb53fb218cf1d2cd499143e941f710b877e9eca795335cf              665 main/binary-all/Packages
- 3e23f6fa278bc985fd5e30845a1cc60df2674f55992f6a04634830527b6cd75bef0348bb9779739fc681c6fc5d46101acd1a6af1a9be1594fe52d149e89f4211              484 main/binary-all/Packages.gz
+ f1d248e2b522a6d3ef4f4498b1c77e9c41e1c880cc3032042d02423c88df430bcfe2153527a9a33e1ce625feb9a3494bd642bbe5130db8d29cf9e3fe2c46dd57              166 Release
+ 049226446f6237cad3b8b5281acca2eff3cce9a591b8c3bef48a3eb688b4e573cce5812d41aa50be826402cc5830e65c1826e4b578ff37e792765f8b5063878e              665 main/binary-all/Packages
+ 0fbf913334b6c5052e9043550ec888e1f79e92092144a15c1f168ca87cd51a18464e92639c71dff4f1f1821dbc7f864a3220f0ba634daa6afa0addcaf5c14d0f              484 main/binary-all/Packages.gz
