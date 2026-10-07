@@ -1,0 +1,20 @@
+Package: bdxai
+Version: 1.0.0
+Architecture: all
+Maintainer: BDX
+Depends: python
+Filename: pool/main/bdxai_1.0.0_all.deb
+Size: 5004
+MD5sum: d085e6cd3a705af00dede67d6b193c88
+SHA1: d815bad17a504ba62f6ac58f2459e9626a986a40
+SHA256: 94bd5bb7499a901e4c7d36760eea443309a65a8696a46c3adf49a8ec34ec2975
+Section: utils
+Priority: optional
+Homepage: https://github.com/bdx/bdxai
+Description: BDX AI ethical cybersecurity assistant for Termux.
+ BDX AI runs a local-only web server (127.0.0.1) that serves a
+ futuristic ethical cybersecurity chat interface powered by
+ OpenRouter. It never exposes your API key to the browser and
+ binds only to localhost by default.
+License: MIT
+
